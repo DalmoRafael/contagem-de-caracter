@@ -1,0 +1,40 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(void) {
+  char nome[20];
+  printf("Digite seu nome: ");
+  scanf("%s", nome);
+
+  int qtd = strlen(nome);
+  int espacos, numeros, letras=0, vogais=0, consoantes=0, maiusculo=0, minusculo = 0;
+
+  for (int i = 0; i < qtd; i++) {
+    if (isupper(nome[i])) { maiusculo++;}
+    if (islower(nome[i])) { minusculo++;}
+    if (isdigit(nome[i])) { numeros++;}
+    if (isspace(nome[i])) { espacos++;}
+    if (isalpha(nome[i])) {char c = tolower(nome[i]);
+      if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        letras++;
+        vogais++;
+      }
+      else{
+        consoantes++;
+      }
+    }
+  }
+
+  printf("Seu nome é: %s\n", nome);
+  printf("Total de letras: %d\n", qtd);
+  printf("Total de vogais: %d\n", vogais);
+  printf("Total de consoantes: %d\n", consoantes);
+  printf("Total de maiusculas: %d\n", maiusculo);
+  printf("Total de minusculas: %d\n", minusculo);
+  printf("Total de numeros: %d\n", numeros);
+  printf("Total de espacos: %d\n", espacos);
+
+  return 0;
+}
